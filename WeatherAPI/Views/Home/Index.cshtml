@@ -5,7 +5,7 @@
     <div class="container-flex">
         <div class="row">
             <div class="col-sm-3 p-3">
-                <form asp-action="GetWeather" asp-controller="BreakingCharlie" id="WeatherForm">
+                <form asp-action="GetWeather" asp-controller="Home" id="WeatherForm">
                     <div class="form-group">
                         <label asp-for="City" class="control-label text-light">Chose your city:</label>
                         <input asp-for="City" value="London" class="form-control w-100" />
@@ -45,7 +45,7 @@
         $.ajax({
             type: "Post",
             url: '/Home/GetWeather',
-            dataType: "Json",
+            dataType: "json",
             data: {
                 City: city
             },
@@ -57,11 +57,12 @@
                 $("#lblHumidity").html(data.humidity);
                 $("#lblTemperature").html(data.temp);
                 $("#lblTempFeelsLike").html(data.tempFeelsLike);
-                $("#imgWeatherIconUrl").attr("src", "http://openweathermap.org/img/w/" + data.weatherIcon + ".png");
+                //$("#imgWeatherIconUrl").attr("src", "http://openweathermap.org/img/w/" + data.weatherIcon + ".png");
             },
             error: function () {
 
             }
         });
+        return false;
     });
 </script> 

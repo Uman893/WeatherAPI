@@ -17,6 +17,10 @@ namespace WeatherAPI.Controllers
             _weaterForcastService = weaterForcastService;
         }
 
+        public IActionResult Index()
+        {
+            return View();
+        }
 
         [HttpPost]
         public async Task<IActionResult> GetWeather(string City)
@@ -31,11 +35,6 @@ namespace WeatherAPI.Controllers
             result.Temp = Convert.ToString(weatherApi.main.temp);
             result.WeatherIcon = weatherApi.weather[0].icon;
             return Json(result);
-        }
-
-        public IActionResult Weather()
-        {
-            return View();
         }
 
         public IActionResult Privacy()

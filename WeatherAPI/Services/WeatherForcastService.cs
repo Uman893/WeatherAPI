@@ -4,11 +4,11 @@ namespace WeatherAPI.Services
 {
     public class WeatherForcastService : IWeatherForcastService
     {
-        private readonly HttpClient _httpClient;
+        
         private readonly IConfiguration _configuration;
-        public WeatherForcastService(HttpClient httpClient, IConfiguration configuration)
+        public WeatherForcastService(IConfiguration configuration)
         {
-            _httpClient = httpClient;
+            
             _configuration = configuration;
         }
 
